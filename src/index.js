@@ -338,7 +338,7 @@ async function migrate({path: dir, projectId, storageBucket, dryrun, app, debug 
 
 		let migration;
 		try {
-			migration = require(file.path);
+			migration = await import('file://'+file.path);
 		} catch (e) {
 			log(e);
 			throw e;
